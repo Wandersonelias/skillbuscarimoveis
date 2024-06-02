@@ -27,14 +27,36 @@ const ImoveisCidadeIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hello World!';
+        
+        var options = {
+                        method: 'GET',
+                        url: 'https://api.wandersonelias.com.br/alexa/imoveis/Santana',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'User-Agent': 'insomnia/8.6.0',
+                            Authorization: ''
+                            //Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0ODY1MTk1LCJleHAiOjE3MTQ4Njg3OTV9.Ripwh1P57Z_kJvrmCHgNaZSQHTgjnyOQUSc4RxSBqzo'
+                            
+                        }
+        };
 
+        axios.request(options).then(function (response) {
+        //console.log(response.data[0]);
+        const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
+        }).catch(function (error) {
+        console.error(error);
+        });
+        
+
+        
     }
 };
+
+
 /*const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
