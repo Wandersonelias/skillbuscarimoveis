@@ -35,7 +35,7 @@ const ImoveisCidadeIntentHandler = {
                             'Content-Type': 'application/json',
                             'User-Agent': '',
                             Authorization: ''
-                            //Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0ODY1MTk1LCJleHAiOjE3MTQ4Njg3OTV9.Ripwh1P57Z_kJvrmCHgNaZSQHTgjnyOQUSc4RxSBqzo'
+                            
                             
                         }
         };
