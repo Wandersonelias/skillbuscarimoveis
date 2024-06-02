@@ -40,7 +40,7 @@ const ImoveisCidadeIntentHandler = {
                     
         }
         
-        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura vamos para lista!  `
+        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
         
         let listString = listArray.toString();
         const speakOutput = listString
