@@ -28,29 +28,36 @@ const ImoveisCidadeIntentHandler = {
     },
     handle(handlerInput) {
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
-        /*var options = {
-                        method: 'GET',
-                        url: `https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'User-Agent': '',
-                            'Authorization': ''
-                            
-                            //Teste
-                        }
-        };*/
+       
 
-        //axios.request(options).then(function (response) {
-        //console.log(response.data[0]);
-        //const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
-        const speakOutput = "OI " + localizado
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
+        /*async function listarImoveis(cidade) {
+        try {
+                const response = await axios.get('https://api.wandersonelias.com.br/alexa/imoveis/' + cidade);
+                console.log(response.data[0].endereco);
+            } catch (error) {
+                console.error(error);
+       
+            }
+        }*/
+        
+        const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
+        //const speakOutput = "OI " + localizado
+        const response = axios.get('https://api.wandersonelias.com.br/alexa/imoveis/Santana').then(function (response) {
+                console.log(response.data[0].endereco);
+                handlerInput.responseBuilder
+                .speak(speakOutput);
+                .getResponse();
+        }).catch(function (error) {
+            
+                console.error(error);
+        });
+        //return handlerInput.responseBuilder
+            //.speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-        //}).catch(function (error) {
-        //console.error(error);
-        //});
+            //.getResponse();
+        
+        
+        
         
 
         
