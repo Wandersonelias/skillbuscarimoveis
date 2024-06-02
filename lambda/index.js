@@ -34,7 +34,7 @@ const ImoveisCidadeIntentHandler = {
                         headers: {
                             'Content-Type': 'application/json',
                             'User-Agent': '',
-                            Authorization: ''
+                            'Authorization': ''
                             
                             
                         }
