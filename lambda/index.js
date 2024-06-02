@@ -27,7 +27,7 @@ const ImoveisCidadeIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
     },
     async handle(handlerInput) {
-        try{
+        
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
         
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
@@ -38,10 +38,7 @@ const ImoveisCidadeIntentHandler = {
             const speakOutput = `Temos um excelente imóvel localizado na ${imovel.endereco}`;
             return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
         }
-        }catch(error)
-            const speakOutput = "Erro";
-            return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
-        }
+        
         
         
         
