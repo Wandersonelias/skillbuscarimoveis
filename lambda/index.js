@@ -35,15 +35,16 @@ const ImoveisCidadeIntentHandler = {
         const imoveis = response.data
                 
         for (const imovel of imoveis) {
-            const imovelText = `Temos um excelente imóvel localizado na ${imovel.endereco} `;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, bairro ${imovel.bairro}, descrição ${imovel.descricao}`;
             listArray.push(imovelText);
                     
         }
         
+        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura vamos para lista!  `
         
         let listString = listArray.toString();
         const speakOutput = listString
-        return handlerInput.responseBuilder.speak("Tranquilo já sei o que procura vamos para lista! " + speakOutput).getResponse();
+        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
         
         
         
