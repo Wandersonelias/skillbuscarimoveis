@@ -28,7 +28,7 @@ const ImoveisCidadeIntentHandler = {
     },
     handle(handlerInput) {
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
-        var options = {
+        /*var options = {
                         method: 'GET',
                         url: `https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`,
                         headers: {
@@ -38,18 +38,19 @@ const ImoveisCidadeIntentHandler = {
                             
                             //Teste
                         }
-        };
+        };*/
 
-        axios.request(options).then(function (response) {
+        //axios.request(options).then(function (response) {
         //console.log(response.data[0]);
-        const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
+        //const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
+        const speakOutput = "OI " + localizado
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
             .getResponse();
-        }).catch(function (error) {
-        console.error(error);
-        });
+        //}).catch(function (error) {
+        //console.error(error);
+        //});
         
 
         
