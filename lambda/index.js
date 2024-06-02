@@ -39,7 +39,7 @@ const ImoveisCidadeIntentHandler = {
             return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
         }
         }catch(error)
-            const speakOutput = error;
+            const speakOutput = "Erro";
             return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
         }
         
