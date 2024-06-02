@@ -35,7 +35,7 @@ const ImoveisCidadeIntentHandler = {
         const imoveis = response.data
                 
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, bairro ${imovel.bairro}, descrição ${imovel.descricao}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
             listArray.push(imovelText);
                     
         }
