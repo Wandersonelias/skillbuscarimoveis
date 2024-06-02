@@ -30,12 +30,13 @@ const ImoveisCidadeIntentHandler = {
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
        
         return axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`).then(function (response) {
-            
+                 for (let i = 0; i < 5; i++) {
                 const speakOutput = `Temos um excelente imóvel localizado na ${response.data[0].endereco} no bairro, ${response.data[0].bairro} uma ótima opção de ${response.data[0].tipo} no valor de R$ ${response.data[0].valor}`;
     
                 return handlerInput.responseBuilder
                 .speak(speakOutput)
                 .getResponse();
+                 }
         }).catch(function (error) {
                 const speakOutput = `Houve um erro: ${error}`;
     
