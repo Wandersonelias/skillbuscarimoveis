@@ -26,6 +26,36 @@ const ImoveisCidadeIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
     },
+    async handle(handlerInput) {
+        try{
+        const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
+        
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
+        const imoveis = response.data
+        
+        for (const imovel of imoveis) {
+            //console.log(imovel.endereco);
+            const speakOutput = `Temos um excelente imóvel localizado na ${imovel.endereco}`;
+            return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
+        }
+        }catch(error)
+            const speakOutput = `MEu error ${error}`
+            return handlerInput.responseBuilder.speak(speakOutput).getResponse();        
+        }
+        
+        
+        
+
+        
+    }
+};
+
+
+/*const ImoveisCidadeIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
+    },
     handle(handlerInput) {
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
        
@@ -57,6 +87,8 @@ const ImoveisCidadeIntentHandler = {
         
     }
 };
+*/
+
 
 
 /*const HelloWorldIntentHandler = {
