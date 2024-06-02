@@ -27,13 +27,13 @@ const ImoveisCidadeIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
     },
     handle(handlerInput) {
-        
+        const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
         var options = {
                         method: 'GET',
-                        url: 'https://api.wandersonelias.com.br/alexa/imoveis/Santana',
+                        url: `https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`,
                         headers: {
                             'Content-Type': 'application/json',
-                            'User-Agent': 'insomnia/8.6.0',
+                            'User-Agent': '',
                             Authorization: ''
                             //Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0ODY1MTk1LCJleHAiOjE3MTQ4Njg3OTV9.Ripwh1P57Z_kJvrmCHgNaZSQHTgjnyOQUSc4RxSBqzo'
                             
