@@ -4,6 +4,8 @@
  * session persistence, api calls, and more.
  * */
 const Alexa = require('ask-sdk-core');
+const axios = require("axios")
+
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
@@ -19,10 +21,10 @@ const LaunchRequestHandler = {
     }
 };
 
-const HelloWorldIntentHandler = {
+const ImoveisCidadeIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
     },
     handle(handlerInput) {
         const speakOutput = 'Hello World!';
