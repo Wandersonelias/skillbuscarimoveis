@@ -33,7 +33,7 @@ const ImoveisCidadeIntentHandler = {
         const listArray = [];    
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
         const imoveis = response.data
-        if(imoveis <= 0){
+        if(imoveis.length <= 0){
             const speakOutput = "Erro na parada";
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
         }        
