@@ -60,10 +60,10 @@ const ImoveisCidadeIntentHandler = {
 //-----------------------------------------------------------------------
 
 
-const ImoveisFiltrarBairroIntentHandler = {
+const ImoveisBairroIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisFiltrarBairro';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisBairro';
     },
     async handle(handlerInput) {
         
@@ -260,7 +260,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
         ImoveisCidadeIntentHandler,
-        ImoveisFiltrarBairroIntentHandler,
+        ImoveisBairroIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
