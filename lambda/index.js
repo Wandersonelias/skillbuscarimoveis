@@ -35,7 +35,7 @@ const ImoveisCidadeIntentHandler = {
         const imoveis = response.data
         if(imoveis <= 0){
             const speakOutput = "Erro na parada";
-        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
         }        
         for (const imovel of imoveis) {
             const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
