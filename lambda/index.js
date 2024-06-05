@@ -80,7 +80,7 @@ const ImoveisFiltrarBairroIntentHandler = {
         //const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${bairro} opções disponíveis, vamos lá?`
         
         //let listString = listArray.toString();
-        const speakOutput = "Minha opção "localizado
+        const speakOutput = "Minha opção "+ localizado
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
         
         
