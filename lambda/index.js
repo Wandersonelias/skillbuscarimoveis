@@ -57,10 +57,10 @@ const ImoveisCidadeIntentHandler = {
 //-----------------------------------------------------------------------
 
 
-const ImoveisCidadeIntentHandler = {
+const ImoveisFiltrarBairroIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisFiltrarBairro';
     },
     async handle(handlerInput) {
         
