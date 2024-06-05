@@ -81,7 +81,7 @@ const ImoveisFiltrarBairroIntentHandler = {
         
         //let listString = listArray.toString();
         //const speakOutput = listString
-        return handlerInput.responseBuilder.speak(bairros).getResponse();
+        return handlerInput.responseBuilder.speak(localizado).getResponse();
         
         
         
