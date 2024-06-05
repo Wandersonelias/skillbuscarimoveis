@@ -65,7 +65,8 @@ const ImoveisFiltrarBairroIntentHandler = {
     async handle(handlerInput) {
         
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
-            
+        const localizado = handlerInput.requestEnvelope.request.intent.slots.bairro.value;
+        /*    
         const listArray = [];    
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
         const imoveis = response.data
@@ -75,12 +76,12 @@ const ImoveisFiltrarBairroIntentHandler = {
             listArray.push(imovelText);
                     
         }
+        */
+        //const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${bairro} opções disponíveis, vamos lá?`
         
-        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
-        
-        let listString = listArray.toString();
-        const speakOutput = listString
-        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+        //let listString = listArray.toString();
+        //const speakOutput = listString
+        return handlerInput.responseBuilder.speak(localizado + speakOutput).getResponse();
         
         
         
