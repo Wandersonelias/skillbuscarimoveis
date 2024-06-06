@@ -51,7 +51,7 @@ const ImoveisCidadeIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Erro tipo" + imoveis).getResponse();
+          return handlerInput.responseBuilder.speak("Erro tipo" + error.data).getResponse();
     }    
         
         
