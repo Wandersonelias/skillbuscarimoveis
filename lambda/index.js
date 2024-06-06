@@ -28,6 +28,7 @@ const ImoveisCidadeIntentHandler = {
     },
     async handle(handlerInput) {
         
+    try{
         const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
             
         const listArray = [];    
@@ -48,10 +49,11 @@ const ImoveisCidadeIntentHandler = {
         let listString = listArray.toString();
         const speakOutput = listString
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+    } catch(error){
+      
+          return handlerInput.responseBuilder.speak("Erro tipo" + error).getResponse();
+    }    
         
-        
-        
-
         
     }
 };
