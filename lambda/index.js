@@ -69,70 +69,39 @@ const ImoveisBairroIntentHandler = {
     },
     async handle(handlerInput) {
         
-        const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
-        const bairros = handlerInput.requestEnvelope.request.intent.slots.bairro.value;
-        /*    
+    try{
+        const cidades = handlerInput.requestEnvelope.request.intent.slots.cidades.value;
+        const bairro = handlerInput.requestEnvelope.request.intent.slots.bairro.value;
+            
         const listArray = [];    
-        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/bairro/${cidades}/${bairro}`);
         const imoveis = response.data
-                
+        //if(imoveis.length <= 0){
+        //    const speakOutput = "Erro na parada";
+        //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+        //}        
         for (const imovel of imoveis) {
             const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
             listArray.push(imovelText);
                     
         }
-        */
-        //const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${bairro} opções disponíveis, vamos lá?`
         
-        //let listString = listArray.toString();
-        const speakOutput = "Minha opção "
-        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
         
+        let listString = listArray.toString();
+        const speakOutput = listString
+        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+    } catch(error){
+      
+          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+    }    
         
-        
-
         
     }
 };
 
 
-/*const ImoveisCidadeIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisCidade';
-    },
-    handle(handlerInput) {
-        const localizado = handlerInput.requestEnvelope.request.intent.slots.cidade.value;
-       
-        axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`).then(function (response) {
-                
-                return response.data.forEach(function(imovel) {
-                        const speakOutput = `Temos um excelente imóvel localizado na ${imovel.endereco}`;
-                        //const speakOutput = `Temos um excelente imóvel localizado na ${response.data[index].endereco} no bairro, ${response.data[index].bairro} uma ótima opção de ${response.data[index].tipo} no valor de R$ ${response.data[index].valor}`;
-                        handlerInput.responseBuilder
-                        .speak(speakOutput)
-                        .getResponse();        
-                });
-        }).catch(function (error) {
-                const speakOutput = `Houve um erro: ${error}`;
-    
-                return handlerInput.responseBuilder
-                .speak(speakOutput)
-                .getResponse();
-        });
-        //return handlerInput.responseBuilder
-            //.speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            //.getResponse();
-        
-        
-        
-        
 
-        
-    }
-};
-*/
 
 
 
