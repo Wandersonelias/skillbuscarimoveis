@@ -51,7 +51,7 @@ const ImoveisCidadeIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Tipo de erro" + error).getResponse();
+          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
     }    
         
         
