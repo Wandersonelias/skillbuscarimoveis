@@ -76,17 +76,13 @@ const ImoveisBairroIntentHandler = {
         const listArray = [];    
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/bairro/${cidades}/${bairro}`);
         const imoveis = response.data
-        //if(imoveis.length <= 0){
-        //    const speakOutput = "Erro na parada";
-        //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
-        //}        
         for (const imovel of imoveis) {
             const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
             listArray.push(imovelText);
                     
         }
         
-        const msgInicial = `Tranquilo em ${localizado}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
+        const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
         
         let listString = listArray.toString();
         const speakOutput = listString
