@@ -21,6 +21,8 @@ const LaunchRequestHandler = {
     }
 };
 
+//----------------------------Imóveis Cidade-------------------------------------------
+
 const ImoveisCidadeIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -59,7 +61,7 @@ const ImoveisCidadeIntentHandler = {
 };
 
 
-//-----------------------------------------------------------------------
+//----------------------------Imóveis Bairro-------------------------------------------
 
 
 const ImoveisBairroIntentHandler = {
@@ -97,24 +99,11 @@ const ImoveisBairroIntentHandler = {
 };
 
 
+//----------------------------Imóveis Tipo-------------------------------------------
 
 
 
 
-/*const HelloWorldIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
-    },
-    handle(handlerInput) {
-        const speakOutput = 'Hello World!';
-
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
-            .getResponse();
-    }
-};*/
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -217,6 +206,25 @@ const ErrorHandler = {
             .getResponse();
     }
 };
+
+//Intent padrão criada por default
+/*const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Hello World!';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};*/
+
+
+
 
 /**
  * This handler acts as the entry point for your skill, routing all request and response
