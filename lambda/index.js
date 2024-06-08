@@ -271,6 +271,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         ImoveisCidadeIntentHandler,
         ImoveisBairroIntentHandler,
+        ImoveisTipoIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
