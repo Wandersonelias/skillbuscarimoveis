@@ -214,6 +214,47 @@ const ImoveisBairroTipoIntentHandler = {
 };
 
 
+
+//ImoveisBairroTipoValor
+//----------------------------Imóveis Bairro Tipo Valor-------------------------------------------
+
+const ImoveisBairroTipoValorIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisBairroTipoValor';
+    },
+    async handle(handlerInput) {
+        
+    try{
+        const cidades = handlerInput.requestEnvelope.request.intent.slots.cidades.value;
+        const bairro = handlerInput.requestEnvelope.request.intent.slots.bairro.value;
+        const tipo = handlerInput.requestEnvelope.request.intent.slots.tipo.value;
+            
+        const listArray = [];    
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}`);
+        const imoveis = response.data
+        for (const imovel of imoveis) {
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            listArray.push(imovelText);
+                    
+        }
+        
+        const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, temos ${tipo}s , eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
+        
+        let listString = listArray.toString();
+        const speakOutput = listString
+        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+    } catch(error){
+      
+          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+    }    
+        
+        
+    }
+};
+
+
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
@@ -348,6 +389,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         ImoveisTipoIntentHandler,
         ImoveisValorIntentHandler,
         ImoveisBairroTipoIntentHandler,
+        ImoveisBairroTipoValorIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
