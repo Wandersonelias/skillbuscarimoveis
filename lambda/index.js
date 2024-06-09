@@ -137,7 +137,42 @@ const ImoveisTipoIntentHandler = {
 };
 
 
+//----------------------------Imóveis Valor-------------------------------------------
 
+
+const ImoveisValorIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ImoveisValor';
+    },
+    async handle(handlerInput) {
+        
+    try{
+        const cidades = handlerInput.requestEnvelope.request.intent.slots.cidades.value;
+        const valor = handlerInput.requestEnvelope.request.intent.slots.valor.value;
+            
+        const listArray = [];    
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/valor/${cidades}/${valor}`);
+        const imoveis = response.data
+        for (const imovel of imoveis) {
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            listArray.push(imovelText);
+                    
+        }
+        
+        const msgInicial = `Tranquilo em ${cidades}, no valor de R$ ${valor}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
+        
+        let listString = listArray.toString();
+        const speakOutput = listString
+        return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
+    } catch(error){
+      
+          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+    }    
+        
+        
+    }
+};
 
 
 const HelpIntentHandler = {
