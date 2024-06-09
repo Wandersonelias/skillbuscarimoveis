@@ -430,6 +430,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         ImoveisValorIntentHandler,
         ImoveisBairroTipoIntentHandler,
         ImoveisBairroTipoValorIntentHandler,
+        AgendamentosIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
