@@ -214,8 +214,6 @@ const ImoveisBairroTipoIntentHandler = {
 };
 
 
-
-//ImoveisBairroTipoValor
 //----------------------------Imóveis Bairro Tipo Valor-------------------------------------------
 
 const ImoveisBairroTipoValorIntentHandler = {
@@ -229,9 +227,10 @@ const ImoveisBairroTipoValorIntentHandler = {
         const cidades = handlerInput.requestEnvelope.request.intent.slots.cidades.value;
         const bairro = handlerInput.requestEnvelope.request.intent.slots.bairro.value;
         const tipo = handlerInput.requestEnvelope.request.intent.slots.tipo.value;
+        const valor = handlerInput.requestEnvelope.request.intent.slots.valor.value;
             
         const listArray = [];    
-        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}`);
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}/${valor}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
             const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
@@ -239,7 +238,7 @@ const ImoveisBairroTipoValorIntentHandler = {
                     
         }
         
-        const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, temos ${tipo}s , eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
+        const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, temos ${tipo}s, no valor de R$ ${valor}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
         
         let listString = listArray.toString();
         const speakOutput = listString
