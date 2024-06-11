@@ -271,7 +271,7 @@ const AgendamentosIntentHandler = {
         
         const dados = {
             cliente_nome: nomeusuario,
-            imoveiId: imoveilId,
+            imoveiId: imovelId,
             data_agendamento: data,
             hora_agendamento: hora,
             telefone: telefone,
