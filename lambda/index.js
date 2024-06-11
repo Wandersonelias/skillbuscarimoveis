@@ -263,9 +263,11 @@ const AgendamentosIntentHandler = {
         
     try{
         const nomeusuario = handlerInput.requestEnvelope.request.intent.slots.nomeusuario.value;
+        const imovelId = handlerInput.requestEnvelope.request.intent.slots.valor.value;
         const data = handlerInput.requestEnvelope.request.intent.slots.data.value;
         const hora = handlerInput.requestEnvelope.request.intent.slots.hora.value;
-        const valor = handlerInput.requestEnvelope.request.intent.slots.valor.value;
+        const telefone = handlerInput.requestEnvelope.request.intent.slots.hora.value;
+        
             
         const listArray = [];    
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}/${valor}`);
