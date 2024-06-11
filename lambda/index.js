@@ -285,7 +285,7 @@ const AgendamentosIntentHandler = {
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak(JSON.stringify(error)).getResponse();
     }    
         
         
