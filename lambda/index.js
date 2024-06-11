@@ -270,11 +270,11 @@ const AgendamentosIntentHandler = {
         
         
         const dados = {
-            cliente_nome: 'João Joaquim',
-            imoveiId: 2,
-            data_agendamento: '02/02/2024',
-            hora_agendamento: '22:25:00',
-            telefone: '326565654454',
+            cliente_nome: nomeusuario,
+            imoveiId: imoveilId,
+            data_agendamento: data,
+            hora_agendamento: hora,
+            telefone: telefone,
         }
             
         
