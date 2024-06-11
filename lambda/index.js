@@ -270,7 +270,7 @@ const AgendamentosIntentHandler = {
         
             
         const listArray = [];    
-        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}/${valor}`);
+        const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`);
         const imoveis = response.data
         for (const imovel of imoveis) {
             const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
@@ -278,11 +278,11 @@ const AgendamentosIntentHandler = {
                     
         }
         
-        const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, temos ${tipo}s, no valor de R$ ${valor}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
+        //const msgInicial = `Tranquilo em ${cidades}, no bairro ${bairro}, temos ${tipo}s, no valor de R$ ${valor}, eu já sei o que procura, vamos para lista! temos ${imoveis.length} opções disponíveis, vamos lá?`
         
         let listString = listArray.toString();
         const speakOutput = listString
-        const speakOutput = `Seu agendamento foi criada em nome de  ${nomeusuario} no dia ${data} para as ${hora}`;
+       // const speakOutput = `Seu agendamento foi criada em nome de  ${nomeusuario} no dia ${data} para as ${hora}`;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
