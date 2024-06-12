@@ -273,7 +273,7 @@ const AgendamentosIntentHandler = {
 
             var options = {
             method: 'POST',
-            url: 'http://localhost:3000/alexa/agendamentos',
+            url: 'https://api.wandersonelias.com.br/alexa/agendamentos',
             headers: {
             'Content-Type': 'application/json',
             'User-Agent': 'insomnia/8.6.0',
