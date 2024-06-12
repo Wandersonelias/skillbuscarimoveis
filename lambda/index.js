@@ -282,6 +282,7 @@ const AgendamentosIntentHandler = {
 
         axios.request(options).then(function (response) {
         console.log(response.data);
+        return handlerInput.responseBuilder.speak("Funcionou").getResponse();
         }).catch(function (error) {
         console.error(error);
         });
