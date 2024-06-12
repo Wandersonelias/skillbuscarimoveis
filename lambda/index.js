@@ -269,15 +269,9 @@ const AgendamentosIntentHandler = {
         const telefone = handlerInput.requestEnvelope.request.intent.slots.telefone.value;
         
         
-        const dados = {
-            cliente_nome: nomeusuario,
-            imoveiId: imovelId,
-            data_agendamento: new Date().toLocaleDateString(),
-            hora_agendamento: new Date().toLocaleTimeString(),
-            telefone: telefone,
-        }
+        
             
-        const speakOutput = `Seu agendamento foi ${dados.cliente_nome} criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
+        
         
         const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,{
             
@@ -291,7 +285,7 @@ const AgendamentosIntentHandler = {
             
         },{});
         //const imovel = response.data
-        
+        const speakOutput = `Seu agendamento foi ${dados.cliente_nome} criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
