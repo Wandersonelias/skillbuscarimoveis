@@ -264,16 +264,16 @@ const AgendamentosIntentHandler = {
     try{
         const nomeusuario = handlerInput.requestEnvelope.request.intent.slots.nomeusuario.value;
         const imovelId = handlerInput.requestEnvelope.request.intent.slots.codImovel.value;
-        const data = handlerInput.requestEnvelope.request.intent.slots.data.value;
-        const hora = handlerInput.requestEnvelope.request.intent.slots.hora.value;
+        //const data = handlerInput.requestEnvelope.request.intent.slots.data.value;
+        //const hora = handlerInput.requestEnvelope.request.intent.slots.hora.value;
         const telefone = handlerInput.requestEnvelope.request.intent.slots.hora.value;
         
         
         const dados = {
             cliente_nome: nomeusuario,
             imoveiId: imovelId,
-            data_agendamento: data,
-            hora_agendamento: hora,
+            //data_agendamento: data,
+            //hora_agendamento: hora,
             telefone: telefone,
         }
             
@@ -281,7 +281,7 @@ const AgendamentosIntentHandler = {
         const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,dados,{});
         const imovel = response.data
         
-        const speakOutput = `Seu agendamento foi criada em nome de  ${nomeusuario} no dia ${data} para as ${hora} no imóvel código ${imovelId}, retornaremos o contato para detalhes, muito obrigado! `;
+        const speakOutput = `Seu agendamento foi criada em nome de  ${nomeusuario} no dia ${/*data*/} para as ${/*hora*/} no imóvel código ${imovelId}, retornaremos o contato para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
