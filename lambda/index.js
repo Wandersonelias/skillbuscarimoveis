@@ -289,7 +289,9 @@ const AgendamentosIntentHandler = {
             };
 
             axios.request(options).then(function (response) {
-                console.log(response.data);
+                const speakOutput = "Funcionou"
+                return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+                //console.log(response.data);
                 }).catch(function (error) {
               console.error(error);
             });
@@ -312,7 +314,7 @@ const AgendamentosIntentHandler = {
         const speakOutput = "Funcionou"
         
         //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
-        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+        //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
           return handlerInput.responseBuilder.speak(JSON.stringify(error.data)).getResponse();
