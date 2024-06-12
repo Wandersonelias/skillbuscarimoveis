@@ -266,7 +266,7 @@ const AgendamentosIntentHandler = {
         const imovelId = handlerInput.requestEnvelope.request.intent.slots.codImovel.value;
         //const data = handlerInput.requestEnvelope.request.intent.slots.data.value;
         //const hora = handlerInput.requestEnvelope.request.intent.slots.hora.value;
-        const telefone = handlerInput.requestEnvelope.request.intent.slots.hora.value;
+        const telefone = handlerInput.requestEnvelope.request.intent.slots.telefone.value;
         
         
         const dados = {
