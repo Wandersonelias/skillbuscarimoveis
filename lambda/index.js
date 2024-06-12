@@ -279,8 +279,8 @@ const AgendamentosIntentHandler = {
             
         const speakOutput = `Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         
-        //const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,dados,{});
-        //const imovel = response.data
+        const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,dados,{});
+        const imovel = response.data
         
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
