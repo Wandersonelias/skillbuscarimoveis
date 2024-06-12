@@ -272,8 +272,8 @@ const AgendamentosIntentHandler = {
         const dados = {
             cliente_nome: nomeusuario,
             imoveiId: imovelId,
-            //data_agendamento: data,
-            //hora_agendamento: hora,
+            data_agendamento: new Date().toLocaleDateString(),
+            hora_agendamento: new Date().toLocaleTimeString(),
             telefone: telefone,
         }
             
