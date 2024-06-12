@@ -285,7 +285,7 @@ const AgendamentosIntentHandler = {
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak(JSON.stringify(error)).getResponse();
+          return handlerInput.responseBuilder.speak(JSON.stringify(error.data)).getResponse();
     }    
         
         
