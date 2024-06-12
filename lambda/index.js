@@ -269,32 +269,22 @@ const AgendamentosIntentHandler = {
         const telefone = handlerInput.requestEnvelope.request.intent.slots.telefone.value;
         
         
-        var axios = require("axios").default;
+        
 
-            var options = {
-            method: 'POST',
-            url: 'https://api.wandersonelias.com.br/alexa/agendamentos',
-            headers: {
-            'Content-Type': 'application/json',
-            'User-Agent': 'insomnia/8.6.0',
-             Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0ODYzNzQzLCJleHAiOjE3MTQ4NjczNDN9.jK06csXLWTm1TPiDvcdeIyk1fTvAzn0GMwpjTVEChAI'
-            },
-            data: {
-                    cliente_nome: 'João Joaquim',
-                    imoveiId: 2,
-                    data_agendamento: '12/02/2024',
-                    hora_agendamento: '22:25:20',
-                    telefone: '326565654454'
-                 }
-            };
+        var options = {
+        method: 'GET',
+        url: 'https://api.wandersonelias.com.br/alexa/agendamentos',
+        params: {cliente_nome: 'elias', imoveiId: '2', telefone: '96999076582'},
+        headers: {
+    
+            }
+        };
 
-            axios.request(options).then(function (response) {
-                const speakOutput = "Funcionou"
-                return handlerInput.responseBuilder.speak(speakOutput).getResponse();
-                //console.log(response.data);
-                }).catch(function (error) {
-              console.error(error);
-            });
+        axios.request(options).then(function (response) {
+        console.log(response.data);
+        }).catch(function (error) {
+        console.error(error);
+        });
             
         
         
