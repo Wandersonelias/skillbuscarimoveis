@@ -259,7 +259,7 @@ const AgendamentosIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'Agendamentos';
     },
-    async handle(handlerInput) {
+    handle(handlerInput) {
         
     try{
         const nomeusuario = handlerInput.requestEnvelope.request.intent.slots.nomeusuario.value;
@@ -269,11 +269,34 @@ const AgendamentosIntentHandler = {
         const telefone = handlerInput.requestEnvelope.request.intent.slots.telefone.value;
         
         
-        
+        var axios = require("axios").default;
+
+            var options = {
+            method: 'POST',
+            url: 'http://localhost:3000/alexa/agendamentos',
+            headers: {
+            'Content-Type': 'application/json',
+            'User-Agent': 'insomnia/8.6.0',
+             Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE0ODYzNzQzLCJleHAiOjE3MTQ4NjczNDN9.jK06csXLWTm1TPiDvcdeIyk1fTvAzn0GMwpjTVEChAI'
+            },
+            data: {
+                    cliente_nome: 'João Joaquim',
+                    imoveiId: 2,
+                    data_agendamento: '12/02/2024',
+                    hora_agendamento: '22:25:20',
+                    telefone: '326565654454'
+                 }
+            };
+
+            axios.request(options).then(function (response) {
+                console.log(response.data);
+                }).catch(function (error) {
+              console.error(error);
+            });
             
         
         
-        const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,{
+        /*const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,{
             
             "cliente_nome": nomeusuario,
             "imoveiId": imovelId,
@@ -283,9 +306,12 @@ const AgendamentosIntentHandler = {
             
             
             
-        },{});
+        },{});*/
         
-        const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
+        
+        const speakOutput = "Funcionou"
+        
+        //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
