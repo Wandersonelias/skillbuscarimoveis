@@ -290,7 +290,7 @@ async handle(handlerInput) {
             
         
         
-        const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=elias&imoveiId=2&telefone=96999076582`);
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=elias&imoveiId=2&telefone=96999076582`);
         
         console.log(response.data)
         const speakOutput = "Funcionou " 
