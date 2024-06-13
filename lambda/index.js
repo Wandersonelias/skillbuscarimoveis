@@ -292,8 +292,8 @@ async handle(handlerInput) {
         
         const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=elias&imoveiId=2&telefone=96999076582`);
         
-        
-        const speakOutput = "Funcionou"
+        console.log(response.data)
+        const speakOutput = "Funcionou " 
         
         //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
