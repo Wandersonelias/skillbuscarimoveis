@@ -269,31 +269,10 @@ async handle(handlerInput) {
         const telefone = handlerInput.requestEnvelope.request.intent.slots.telefone.value;
         
         
-        
-
-        /*var options = {
-        method: 'GET',
-        url: 'https://api.wandersonelias.com.br/alexa/agendamentos',
-        params: {cliente_nome: 'elias', imoveiId: '2', telefone: '96999076582'},
-        headers: {
-    
-            }
-        };
-
-        axios.request(options).then(function (response) {
-        console.log(response.data);
-        return handlerInput.responseBuilder.speak("Funcionou").getResponse();
-        }).catch(function (error) {
-        return handlerInput.responseBuilder.speak("Funcionou " + error).getResponse();
-        
-        });*/
-            
-        
-        
-        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=elias&imoveiId=2&telefone=96999076582`);
+        const response = await axios.get(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=${nomeusuario}&imoveiId=${imovelId}&telefone=${telefone}`);
         
         console.log(response.data)
-        const speakOutput = "Funcionou " 
+        const speakOutput = "Agendamento realizado com sucesso!!" 
         
         //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
