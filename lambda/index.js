@@ -272,7 +272,7 @@ async handle(handlerInput) {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=${nomeusuario}&imoveiId=${imovelId}&telefone=${telefone}`);
         
         console.log(response.data)
-        const speakOutput = "Agendamento realizado com sucesso!!" 
+        const speakOutput = "Agendamento realizado com sucesso!!, Logo nossos corretores, entraram em contato com você, para mais detalhes!!" 
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
