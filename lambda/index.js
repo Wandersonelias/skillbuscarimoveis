@@ -259,7 +259,7 @@ const AgendamentosIntentHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'Agendamentos';
     },
-    handle(handlerInput) {
+async handle(handlerInput) {
         
     try{
         const nomeusuario = handlerInput.requestEnvelope.request.intent.slots.nomeusuario.value;
@@ -271,7 +271,7 @@ const AgendamentosIntentHandler = {
         
         
 
-        var options = {
+        /*var options = {
         method: 'GET',
         url: 'https://api.wandersonelias.com.br/alexa/agendamentos',
         params: {cliente_nome: 'elias', imoveiId: '2', telefone: '96999076582'},
@@ -286,27 +286,17 @@ const AgendamentosIntentHandler = {
         }).catch(function (error) {
         return handlerInput.responseBuilder.speak("Funcionou " + error).getResponse();
         
-        });
+        });*/
             
         
         
-        /*const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos`,{
-            
-            "cliente_nome": nomeusuario,
-            "imoveiId": imovelId,
-            "data_agendamento": new Date().toLocaleDateString(),
-            "hora_agendamento": new Date().toLocaleTimeString(),
-            "telefone": telefone
-            
-            
-            
-        },{});*/
+        const response = await axios.post(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=elias&imoveiId=2&telefone=96999076582`);
         
         
         const speakOutput = "Funcionou"
         
         //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
-        //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
           return handlerInput.responseBuilder.speak(JSON.stringify(error.data)).getResponse();
