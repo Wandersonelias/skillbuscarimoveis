@@ -53,7 +53,7 @@ const ImoveisCidadeIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade.").getResponse();
     }    
         
         
@@ -91,7 +91,7 @@ const ImoveisBairroIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade." ).getResponse();
     }    
         
         
@@ -129,7 +129,7 @@ const ImoveisTipoIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade.").getResponse();
     }    
         
         
@@ -167,7 +167,7 @@ const ImoveisValorIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade." ).getResponse();
     }    
         
         
@@ -206,7 +206,7 @@ const ImoveisBairroTipoIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade.").getResponse();
     }    
         
         
@@ -245,7 +245,7 @@ const ImoveisBairroTipoValorIntentHandler = {
         return handlerInput.responseBuilder.speak(msgInicial + speakOutput).getResponse();
     } catch(error){
       
-          return handlerInput.responseBuilder.speak("Calma Calabreso!, ainda não temos imóveis nesta cidade." ).getResponse();
+          return handlerInput.responseBuilder.speak("Ainda não temos imóveis nesta cidade.").getResponse();
     }    
         
         
@@ -273,8 +273,6 @@ async handle(handlerInput) {
         
         console.log(response.data)
         const speakOutput = "Agendamento realizado com sucesso!!" 
-        
-        //const speakOutput = `${response.data} Seu agendamento foi criada em nome de  ${nomeusuario} no dia para as no imóvel código ${imovelId}, retornaremos o contato ${telefone} para detalhes, muito obrigado! `;
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
