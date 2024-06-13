@@ -41,7 +41,7 @@ const ImoveisCidadeIntentHandler = {
         //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
         //}        
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não? \n`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?`;
             listArray.push(imovelText);
                     
         }
