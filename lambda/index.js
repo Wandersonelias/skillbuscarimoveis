@@ -41,7 +41,7 @@ const ImoveisCidadeIntentHandler = {
         //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
         //}        
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não? \n`;
             listArray.push(imovelText);
                     
         }
@@ -79,7 +79,7 @@ const ImoveisBairroIntentHandler = {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/bairro/${cidades}/${bairro}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não?`;
             listArray.push(imovelText);
                     
         }
@@ -117,7 +117,7 @@ const ImoveisTipoIntentHandler = {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/tipo/${cidades}/${tipo}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não?`;
             listArray.push(imovelText);
                     
         }
@@ -155,7 +155,7 @@ const ImoveisValorIntentHandler = {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/valor/${cidades}/${valor}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não?`;
             listArray.push(imovelText);
                     
         }
@@ -194,7 +194,7 @@ const ImoveisBairroTipoIntentHandler = {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não?`;
             listArray.push(imovelText);
                     
         }
@@ -233,7 +233,7 @@ const ImoveisBairroTipoValorIntentHandler = {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${cidades}/${bairro}/${tipo}/${valor}`);
         const imoveis = response.data
         for (const imovel of imoveis) {
-            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}`;
+            const imovelText = `Imóvel localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?, Sim ou Não?`;
             listArray.push(imovelText);
                     
         }
