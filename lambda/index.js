@@ -284,6 +284,7 @@ const AgendamentosIntentHandler = {
         console.log(response.data);
         return handlerInput.responseBuilder.speak("Funcionou").getResponse();
         }).catch(function (error) {
+        return handlerInput.responseBuilder.speak("Funcionou " + error).getResponse();
         console.error(error);
         });
             
