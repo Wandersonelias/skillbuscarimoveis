@@ -12,7 +12,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Oi, Seja bem vindo ao seu buscador de imóveis por voz, vamos inciar nossa busca pelo Imóvel? ';
+        const speakOutput = 'Oi, Seja bem vindo ao seu buscador de imóveis por voz, vamos inciar nossa busca pelo Imóvel, dos seus sonhos? ';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
