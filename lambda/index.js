@@ -36,10 +36,7 @@ const ImoveisCidadeIntentHandler = {
         const listArray = [];    
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/imoveis/${localizado}`);
         const imoveis = response.data
-        //if(imoveis.length <= 0){
-        //    const speakOutput = "Erro na parada";
-        //return handlerInput.responseBuilder.speak(speakOutput).getResponse();
-        //}        
+               
         for (const imovel of imoveis) {
             const imovelText = `Imóvel código ${imovel.id}, localizado na ${imovel.endereco}, no bairro ${imovel.bairro}, a seguinte descrição ${imovel.descricao} no valor de R$ ${imovel.valor}, Deseja agendar uma visita?`;
             listArray.push(imovelText);
@@ -282,8 +279,6 @@ async handle(handlerInput) {
         
     }
 };
-
-
 
 
 
