@@ -12,7 +12,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Oi, Seja bem vindo ao seu buscador de imóveis por voz, como posso ajudar?';
+        const speakOutput = 'Oi, Seja bem vindo ao seu buscador de imóveis por voz, para conhecer meus comandos basicos use, Alexa opções de busca, vamos lá? ';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -272,7 +272,7 @@ async handle(handlerInput) {
         const response = await axios.get(`https://api.wandersonelias.com.br/alexa/agendamentos?cliente_nome=${nomeusuario}&imoveiId=${imovelId}&telefone=${telefone}`);
         
         console.log(response.data)
-        const speakOutput = "Agendamento realizado com sucesso!!, Logo nossos corretores, entraram em contato com você, para mais detalhes!!" 
+        const speakOutput = "Agendamento realizado com sucesso! Logo nossos corretores, entraram em contato com você, para mais detalhes!!" 
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     } catch(error){
       
