@@ -304,7 +304,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Goodbye!';
+        const speakOutput = 'Muito obrigado, por usar nossa aplicação!';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
