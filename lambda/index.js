@@ -12,8 +12,11 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Oi, Seja bem vindo ao seu buscador de imóveis por voz, vamos inciar nossa busca pelo Imóvel, dos seus sonhos? ';
-
+        const speakOutput = "Oi, Seja bem vindo ao seu buscador de imóveis por voz, vamos inciar nossa busca pelo Imóvel, dos seus sonhos?" 
+                            +"Você já conhece algumas das nossas opções de busca, se não vamos lá" +
+                            +" Opção 1 - Buscar imoveis em sua cidade, Opção 2 - Buscar imoveis em sua cidade pelo bairro, Opção 3 - Buscar imoveis em sua cidade pelo tipo, Opção 4 - Buscar imoveis em sua cidade , "+
+                            " Opção 5 - Buscar imoveis em sua cidade pelo bairro e valor, Opção 6 - Buscar imoveis em sua cidade pelo bairro tipo e valor, "+
+                            "E fazer agendamento em algum imóvel de sua preferência, essa são algumas das opções que estaão disponíveis para você no Alexa Buscar Imóveis ."
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
